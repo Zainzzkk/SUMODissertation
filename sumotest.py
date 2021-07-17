@@ -3,7 +3,6 @@ import time
 import traci.constants as tc
 from random import randrange
 
-
 if 'SUMO_HOME' in os.environ:
     tools = os.path.join(os.environ['SUMO_HOME'], 'tools')
     sys.path.append(tools)
@@ -19,6 +18,10 @@ traci.start(sumoCmd)
 print("Starting SUMO")
 traci.gui.setSchema("View #0", "real world")
 
+vehicles = traci.simulation.getLoadedIDList()
+for veh in range(0, len(vehicles)):
+    traci.vehicle.subscribeContext(vehicles[veh], tc.CMD_GET_VEHICLE_VARIABLE, 60, [tc.VAR_SPEED])
+
 
 # def random_go(vehicle):
 #     for k in range(0, len(vehicle)):
@@ -32,12 +35,6 @@ def random_go(vehicle):
         traci.vehicle.resume(vehicle[togo])
 
 
-# print("lanes", traci.lane.getIDList())
-# print("length", traci.lane.getLength("middle2left_0"))
-# traci.junction.subscribeContext("2", traci.constants.CMD_GET_VEHICLE_VARIABLE, 0.0)
-# print("junctions", traci.junction.getIDList())
-traci.junction.subscribeContext("2", tc.CMD_GET_VEHICLE_VARIABLE, 60, [tc.VAR_SPEED, tc.VAR_WAITING_TIME])
-
 j = 0
 
 while j < 80:
@@ -46,37 +43,24 @@ while j < 80:
     traci.simulationStep()
 
     vehicles = traci.vehicle.getIDList()
-    # if (j % 2) == 0:  # every 10 sec....
+    for car in range(0, len(vehicles)):
+        neighbours = traci.vehicle.getContextSubscriptionResults(vehicles[car])
 
-    neighbours = traci.junction.getContextSubscriptionResults("2")
-
-    if neighbours:
-        neighbourcar = list(neighbours)
-        for i in range(0, len(neighbourcar)):
-            currentEdge = traci.vehicle.getRoadID(neighbourcar[i])
-            fullCurrentEdge = currentEdge + "_0"
-            distance = traci.lane.getLength(fullCurrentEdge)
-            #traci.vehicle.setSpeed(neighbourcar[i], 0)
-            if traci.vehicle.getDistance(neighbourcar[i]) < distance:
-                #traci.vehicle.setSpeed(neighbourcar[i], 0)
-                try:
-                    traci.vehicle.setStop(vehicles[i], traci.vehicle.getRoadID(vehicles[i]), distance, 0, 10, 0)
-                except traci.exceptions.TraCIException:
-                    pass
+        if neighbours:
+            neighbourcar = list(neighbours)
+            for i in range(0, len(neighbourcar)):
+                currentEdge = traci.vehicle.getRoadID(vehicles[car])
+                if traci.vehicle.getRoadID(neighbourcar[i]) != currentEdge:
+                    currentEdge = traci.vehicle.getRoadID(vehicles[car])
+                    fullCurrentEdge = currentEdge + "_0"
+                    distance = traci.lane.getLength(fullCurrentEdge)
+                    if traci.vehicle.getDistance(vehicles[car]) < distance:
+                        try:
+                            traci.vehicle.setStop(vehicles[car], traci.vehicle.getRoadID(vehicles[car]), distance, 0,
+                                                  10, 0)
+                        except traci.exceptions.TraCIException:
+                            pass
             random_go(neighbourcar)
-
-
-    # for i in range(0, len(vehicles)):
-
-    # edge that vehicle is on
-    # currentEdge = traci.vehicle.getRoadID(vehicles[i])
-    # lane has _0 on end
-    # fullCurrentEdge = currentEdge + "_0"
-    # get distance of edge to stop at
-    # distance = traci.lane.getLength(fullCurrentEdge)
-    # stop at junction
-    # traci.vehicle.setStop(vehicles[i], currentEdge, distance, 0,10,0,10)
-
 
     j = j + 1
 
