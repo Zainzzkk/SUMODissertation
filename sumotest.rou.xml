@@ -9,29 +9,37 @@
     <vType accel="1000000" decel="1000000" id="Car3" sigma="0.0" maxSpeed="20" minGap="0"/>
     <vType accel="1000000" decel="1000000" id="Car3a" sigma="0.0" maxSpeed="20" minGap="0"/>
 
-    <vehicle id="Car" depart="0">
+     <vehicle id="Car" depart="0">
         <route edges="left2middle middle2right"/>
+        <stop lane="left2middle_0" duration="50000" startPos="-.1"/>
     </vehicle>
     <vehicle id="Cara" depart="0">
         <route edges="left2middle middle2right"/>
+        <stop lane="left2middle_1" duration="50000" startPos="-.1"/>
     </vehicle>
-    <vehicle id="Car1" depart="0">
-        <route edges="right2middle middle2left"/>
-    </vehicle>
-    <vehicle id="Car1a" depart="0">
-        <route edges="right2middle middle2left"/>
-    </vehicle>
-    <vehicle id="Car2" depart="0">
-        <route edges="top2middle middle2bottom"/>
-    </vehicle>
-    <vehicle id="Car2a" depart="0">
-        <route edges="top2middle middle2bottom"/>
-    </vehicle>
-    <vehicle id="Car3" depart="0">
-        <route edges="bottom2middle middle2top"/>
-    </vehicle>
-    <vehicle id="Car3a" depart="0">
-        <route edges="bottom2middle middle2top"/>
-    </vehicle>
+<!--    <vehicle id="Car1" depart="0">-->
+<!--        <route edges="right2middle middle2left"/>-->
+<!--        <stop lane="right2middle_0" duration="50000" startPos="-.1"/>-->
+<!--    </vehicle>-->
+<!--    <vehicle id="Car1a" depart="0">-->
+<!--        <route edges="right2middle middle2left"/>-->
+<!--        <stop lane="right2middle_1" duration="50000" startPos="-.1"/>-->
+<!--    </vehicle>-->
+<!--    <vehicle id="Car2" depart="0">-->
+<!--        <route edges="top2middle middle2bottom"/>-->
+<!--        <stop lane="top2middle_0" duration="50000" startPos="-.1"/>-->
+<!--    </vehicle>-->
+<!--    <vehicle id="Car2a" depart="0">-->
+<!--        <route edges="top2middle middle2bottom"/>-->
+<!--        <stop lane="top2middle_1" duration="50000" startPos="-.1"/>-->
+<!--    </vehicle>-->
+<!--    <vehicle id="Car3" depart="0">-->
+<!--        <route edges="bottom2middle middle2top"/>-->
+<!--        <stop lane="bottom2middle_0" duration="50000" startPos="-.1"/>-->
+<!--    </vehicle>-->
+<!--    <vehicle id="Car3a" depart="0">-->
+<!--        <route edges="bottom2middle middle2top"/>-->
+<!--        <stop lane="bottom2middle_1" duration="50000" startPos="-.1"/>-->
+<!--    </vehicle>-->
 
 </routes>
