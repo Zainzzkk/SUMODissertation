@@ -20,7 +20,7 @@ traci.gui.setSchema("View #0", "real world")
 
 vehicles = traci.simulation.getLoadedIDList()
 for veh in range(0, len(vehicles)):
-    traci.vehicle.subscribeContext(vehicles[veh], tc.CMD_GET_VEHICLE_VARIABLE, 60, [tc.VAR_SPEED])
+    traci.vehicle.subscribeContext(vehicles[veh], tc.CMD_GET_VEHICLE_VARIABLE, 100, [tc.VAR_SPEED])
 
 
 # def random_go(vehicle):

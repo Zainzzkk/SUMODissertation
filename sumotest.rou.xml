@@ -10,28 +10,28 @@
     <vType accel="1000000" decel="1000000" id="Car3a" sigma="0.0" maxSpeed="20" minGap="0"/>
 
     <vehicle id="Car" depart="0">
-        <route edges="left2middle middle2right"/>
+        <route edges="01E 11E"/>
     </vehicle>
     <vehicle id="Cara" depart="0">
-        <route edges="left2middle middle2right"/>
+        <route edges="01E 11E"/>
     </vehicle>
     <vehicle id="Car1" depart="0">
-        <route edges="right2middle middle2left"/>
+        <route edges="21W 11W"/>
     </vehicle>
     <vehicle id="Car1a" depart="0">
-        <route edges="right2middle middle2left"/>
+        <route edges="21W 11W"/>
     </vehicle>
     <vehicle id="Car2" depart="0">
-        <route edges="top2middle middle2bottom"/>
+        <route edges="10S 11S"/>
     </vehicle>
     <vehicle id="Car2a" depart="0">
-        <route edges="top2middle middle2bottom"/>
+        <route edges="10S 11S"/>
     </vehicle>
     <vehicle id="Car3" depart="0">
-        <route edges="bottom2middle middle2top"/>
+        <route edges="12N 11N"/>
     </vehicle>
     <vehicle id="Car3a" depart="0">
-        <route edges="bottom2middle middle2top"/>
+        <route edges="12N 11N"/>
     </vehicle>
 
 </routes>
