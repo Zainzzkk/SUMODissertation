@@ -20,15 +20,17 @@ traci.start(sumoCmd)
 print("Starting SUMO")
 traci.gui.setSchema("View #0", "real world")
 
+# loads vehicles loaded into simulation
 vehicles = traci.simulation.getLoadedIDList()
 for veh in range(0, len(vehicles)):
+    # subscribes to check for neighbours 60m away
     traci.vehicle.subscribeContext(vehicles[veh], tc.CMD_GET_VEHICLE_VARIABLE, 60, [tc.VAR_SPEED])
 
 j = 0
 
 while j < 80:
     # this runs one simulation step
-    time.sleep(0.25)
+    time.sleep(0.2)
     traci.simulationStep()
     vehicles = traci.vehicle.getIDList()
     RandomPolicy.random_policy(vehicles)
