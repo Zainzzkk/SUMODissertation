@@ -26,15 +26,19 @@ def check_clash(neighbours):
     # east and south clash so will set stop
     if ('E' in direction) and ('S' in direction):
         set_stop(neighbours)
+        return
     # east and north clash so will set stop
     if ('E' in direction) and ('N' in direction):
         set_stop(neighbours)
+        return
     # west and south clash so sets stop
     if ('W' in direction) and ('S' in direction):
         set_stop(neighbours)
+        return
     # west and north clash so sets stop
     if ('W' in direction) and ('N' in direction):
         set_stop(neighbours)
+        return
 
 
 # function to set the stop
