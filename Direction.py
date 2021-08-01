@@ -7,8 +7,10 @@ direction = []
 # main function for direction
 def direction_check(neighbours):
     for neighbour in range(0, len(neighbours)):
-        # checks direction for each vehicle
-        route_direction(neighbours[neighbour])
+        vehicles = traci.vehicle.getIDList()
+        if neighbours[neighbour] in vehicles:
+            # checks direction for each vehicle
+            route_direction(neighbours[neighbour])
     # checks if clash after adding to direction list
     check_clash(neighbours)
 
@@ -44,16 +46,18 @@ def check_clash(neighbours):
 # function to set the stop
 def set_stop(neighbours):
     for i in range(0, len(neighbours)):
-        # returns current edge that car is on
-        current_edge = traci.vehicle.getRoadID(neighbours[i])
-        # adds _0 to obtain lane of car
-        full_current_edge = current_edge + "_0"
-        # gets distance of lane that car is on
-        distance = traci.lane.getLength(full_current_edge)
-        # only sets stop if car has not reached junction, else no need for stop
-        if traci.vehicle.getDistance(neighbours[i]) < distance:
-            try:
-                traci.vehicle.setStop(neighbours[i], traci.vehicle.getRoadID(neighbours[i]), distance, 0,
-                                      10, 0)
-            except traci.exceptions.TraCIException:
-                pass
+        vehicles = traci.vehicle.getIDList()
+        if neighbours[i] in vehicles:
+            # returns current edge that car is on
+            current_edge = traci.vehicle.getRoadID(neighbours[i])
+            # adds _0 to obtain lane of car
+            full_current_edge = current_edge + "_0"
+            # gets distance of lane that car is on
+            distance = traci.lane.getLength(full_current_edge)
+            # only sets stop if car has not reached junction, else no need for stop
+            if traci.vehicle.getDistance(neighbours[i]) < distance:
+                try:
+                    traci.vehicle.setStop(neighbours[i], traci.vehicle.getRoadID(neighbours[i]), distance, 0,
+                                          100, 0)
+                except traci.exceptions.TraCIException:
+                    pass

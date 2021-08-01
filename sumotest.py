@@ -4,7 +4,7 @@ import time
 
 import traci.constants as tc
 
-import RandomPolicy
+import DistanceFromJunction
 
 if 'SUMO_HOME' in os.environ:
     tools = os.path.join(os.environ['SUMO_HOME'], 'tools')
@@ -24,7 +24,7 @@ traci.gui.setSchema("View #0", "real world")
 vehicles = traci.simulation.getLoadedIDList()
 for veh in range(0, len(vehicles)):
     # subscribes to check for neighbours 60m away
-    traci.vehicle.subscribeContext(vehicles[veh], tc.CMD_GET_VEHICLE_VARIABLE, 60, [tc.VAR_SPEED])
+    traci.vehicle.subscribeContext(vehicles[veh], tc.CMD_GET_VEHICLE_VARIABLE, 100, [tc.VAR_SPEED])
 
 j = 0
 
@@ -33,7 +33,7 @@ while j < 80:
     time.sleep(0.2)
     traci.simulationStep()
     vehicles = traci.vehicle.getIDList()
-    RandomPolicy.random_policy(vehicles)
+    DistanceFromJunction.Distance(vehicles)
     j = j + 1
 
 traci.close()
