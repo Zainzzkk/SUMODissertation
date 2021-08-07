@@ -59,7 +59,7 @@ def passed_junction(vehicle):
 def to_go(stopped):
     # resumes in order of reaching junction
     for resume in range(0, len(stopped)):
-        # checks if vehicle still in simulation
+        # checks if vehicle still in simulationbo
         vehicles = traci.vehicle.getIDList()
         if stopped[resume] in vehicles:
             if traci.vehicle.getStopState(stopped[resume]) == 1:
