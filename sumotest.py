@@ -1,3 +1,4 @@
+import json
 import os
 import sys
 import time
@@ -5,7 +6,7 @@ import pandas as pd
 
 import traci.constants as tc
 
-import DistanceFromJunction
+import CreditPolicy
 import CreditSystem
 
 if 'SUMO_HOME' in os.environ:
@@ -24,8 +25,11 @@ traci.gui.setSchema("View #0", "real world")
 
 # loads vehicles loaded into simulation
 vehicles = traci.simulation.getLoadedIDList()
-veh_credit = CreditSystem.starting_credits(vehicles)
-veh_policy = CreditSystem.starting_policy(vehicles)
+df = CreditSystem.read_reputation()
+print(df)
+
+
+
 for veh in range(0, len(vehicles)):
     # subscribes to check for neighbours 60m away
     traci.vehicle.subscribeContext(vehicles[veh], tc.CMD_GET_VEHICLE_VARIABLE, 100, [tc.VAR_SPEED])
@@ -37,6 +41,7 @@ while j < 80:
     time.sleep(0.2)
     traci.simulationStep()
     vehicles = traci.vehicle.getIDList()
+    df = CreditPolicy.credit_policy(vehicles, df)
     j = j + 1
 
 traci.close()

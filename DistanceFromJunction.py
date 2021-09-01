@@ -1,9 +1,7 @@
 import traci
 
 import Direction
-
-# global list of vehicles to be stopped
-stop_list = []
+import CreditPolicy
 
 
 def Distance(vehicles):
@@ -17,20 +15,18 @@ def Distance(vehicles):
             # goes through neighbours
             for to_stop in range(0, len(neighbourcar)):
                 # checks that neighbour not already in stop_list
-                if neighbourcar[to_stop] not in stop_list:
+                if neighbourcar[to_stop] not in CreditPolicy.stop_list:
                     # checks that ID not the same as first car
                     # checks that car has not already passed junction
                     if to_stop != neighbour_id and passed_junction(neighbourcar[to_stop]):
                         # adds to stop list
-                        stop_list.append(neighbourcar[to_stop])
+                        CreditPolicy.stop_list.append(neighbourcar[to_stop])
 
     # checks if stop_list is empty or not
-    if stop_list:
+    if CreditPolicy.stop_list:
         # only stops if clashing direction
-        Direction.direction_check(stop_list)
+        Direction.direction_check(CreditPolicy.stop_list)
         # resumes based on when reached junction
-        to_go(stop_list)
-
 
 # checks which car closest to junction
 def closest_to_junction(neighbours):
@@ -55,12 +51,11 @@ def passed_junction(vehicle):
 
     return True
 
-
-def to_go(stopped):
-    # resumes in order of reaching junction
-    for resume in range(0, len(stopped)):
-        # checks if vehicle still in simulationbo
-        vehicles = traci.vehicle.getIDList()
-        if stopped[resume] in vehicles:
-            if traci.vehicle.getStopState(stopped[resume]) == 1:
-                traci.vehicle.resume(stopped[resume])
+# def to_go(stopped):
+#     # resumes in order of reaching junction
+#     for resume in range(0, len(stopped)):
+#         # checks if vehicle still in simulationbo
+#         vehicles = traci.vehicle.getIDList()
+#         if stopped[resume] in vehicles:
+#             if traci.vehicle.getStopState(stopped[resume]) == 1:
+#                 traci.vehicle.resume(stopped[resume])
