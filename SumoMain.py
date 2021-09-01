@@ -17,7 +17,7 @@ else:
 
 import traci.constants
 
-sumoCmd = ["sumo-gui", "-c", "sumotest.sumo.cfg", "--start"]
+sumoCmd = ["sumo-gui", "-c", "sumomain.sumo.cfg", "--start"]
 traci.start(sumoCmd)
 
 print("Starting SUMO")
