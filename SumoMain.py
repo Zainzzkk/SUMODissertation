@@ -29,7 +29,6 @@ df = CreditSystem.read_reputation()
 print(df)
 
 
-
 for veh in range(0, len(vehicles)):
     # subscribes to check for neighbours 60m away
     traci.vehicle.subscribeContext(vehicles[veh], tc.CMD_GET_VEHICLE_VARIABLE, 100, [tc.VAR_SPEED])

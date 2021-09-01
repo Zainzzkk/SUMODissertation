@@ -1,34 +1,34 @@
 <routes>
 
-    <vType accel="1000000" decel="1000000" id="Car" sigma="0.0" maxSpeed="20" minGap="0"/>
-    <vType accel="1000000" decel="1000000" id="Cara" sigma="0.0" maxSpeed="20" minGap="0"/>
-    <vType accel="1000000" decel="1000000" id="Car1" sigma="0.0" maxSpeed="20" minGap="0"/>
-    <vType accel="1000000" decel="1000000" id="Car1a" sigma="0.0" maxSpeed="20" minGap="0"/>
-    <vType accel="1000000" decel="1000000" id="Car2" sigma="0.0" maxSpeed="20" minGap="0"/>
-    <vType accel="1000000" decel="1000000" id="Car2a" sigma="0.0" maxSpeed="20" minGap="0"/>
-    <vType accel="1000000" decel="1000000" id="Car3" sigma="0.0" maxSpeed="20" minGap="0"/>
-    <vType accel="1000000" decel="1000000" id="Car3a" sigma="0.0" maxSpeed="20" minGap="0"/>
+    <vType accel="1000000" decel="1000000" id="Car" sigma="0.0" maxSpeed="20" minGap="0" />
+    <vType accel="1000000" decel="1000000" id="Cara" sigma="0.0" maxSpeed="20" minGap="0" lcStrategic="0" lcSpeedGain="0" lcKeepRight="0" lcCooperative="0"/>
+    <vType accel="1000000" decel="1000000" id="Car1" sigma="0.0" maxSpeed="20" minGap="0" lcStrategic="0" lcSpeedGain="0" lcKeepRight="0" lcCooperative="0"/>
+    <vType accel="1000000" decel="1000000" id="Car1a" sigma="0.0" maxSpeed="20" minGap="0" lcStrategic="0" lcSpeedGain="0" lcKeepRight="0" lcCooperative="0"/>
+    <vType accel="1000000" decel="1000000" id="Car2" sigma="0.0" maxSpeed="20" minGap="0" lcStrategic="0" lcSpeedGain="0" lcKeepRight="0" lcCooperative="0"/>
+    <vType accel="1000000" decel="1000000" id="Car2a" sigma="0.0" maxSpeed="20" minGap="0" lcStrategic="0" lcSpeedGain="0" lcKeepRight="0" lcCooperative="0"/>
+    <vType accel="1000000" decel="1000000" id="Car3" sigma="0.0" maxSpeed="20" minGap="0" lcStrategic="0" lcSpeedGain="0" lcKeepRight="0" lcCooperative="0"/>
+    <vType accel="1000000" decel="1000000" id="Car3a" sigma="0.0" maxSpeed="20" minGap="0" lcStrategic="0" lcSpeedGain="0" lcKeepRight="0" lcCooperative="0"/>
 
     <route edges="01E 11E" id="E"/>
     <route edges="21W 11W" id="W"/>
     <route edges="10S 11S" id="S"/>
     <route edges="12N 11N" id="N"/>
 
-    <vehicle id="Car" depart="0" route="E">
+    <vehicle id="Car" depart="0" route="E" departLane="0">
     </vehicle>
-    <vehicle id="Cara" depart="0" route="E">
+    <vehicle id="Cara" depart="0" route="E" departLane="1">
     </vehicle>
-    <vehicle id="Car1" depart="0" route="W">
+    <vehicle id="Car1" depart="0" route="W" departLane="0">
     </vehicle>
-    <vehicle id="Car1a" depart="0" route="W">
+    <vehicle id="Car1a" depart="0" route="W" departLane="1">
     </vehicle>
-    <vehicle id="Car2" depart="0" route="S">
+    <vehicle id="Car2" depart="0" route="S" departLane="0">
     </vehicle>
-    <vehicle id="Car2a" depart="0" route="S">
+    <vehicle id="Car2a" depart="0" route="S" departLane="1">
     </vehicle>
-    <vehicle id="Car3" depart="0" route="N">
+    <vehicle id="Car3" depart="0" route="N" departLane="0">
     </vehicle>
-    <vehicle id="Car3a" depart="0" route="N">
+    <vehicle id="Car3a" depart="0" route="N" departLane="1">
     </vehicle>
 
 </routes>

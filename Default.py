@@ -15,7 +15,7 @@ def default_go(data):
     if len(CreditPolicy.default_list) == 1:
         VehicleControls.remove_stop(CreditPolicy.default_list, highest_rep)
         return data
-    while CreditPolicy.if_d_stopped():
+    while CreditPolicy.default_list():
         highest_rep = Reputation.check_highest_reputation(CreditPolicy.default_list, data)
         if len(highest_rep) > 1:
             highest_credit = Credit.check_highest_credit(CreditPolicy.default_list, data)

@@ -19,7 +19,7 @@ def priority_go(data):
         return data
 
     # loop checking for next highest until list cleared
-    while CreditPolicy.if_p_stopped():
+    while CreditPolicy.priority_list:
         # checks which car has highest reputation
         highest_rep = Reputation.check_highest_reputation(CreditPolicy.priority_list, data)
         # if more than 1 on same highest rep

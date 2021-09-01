@@ -11,6 +11,8 @@ import Priority
 
 # list of cars which have to stop
 stop_list = []
+# list of cars which have stopped
+stopped_list = []
 # list of priority cars
 priority_list = []
 # list of default cars
@@ -23,19 +25,27 @@ generous_list = []
 def credit_policy(vehicles, data):
     # checks who is first and stops rest
     DistanceFromJunction.Distance(vehicles)
+    stopped_cars()
     # adds car priority to list
     policy_checker(data)
     # if priority list not empty and if priority cars stopped
     # only want to do these if stopped cars or else wasting resources
-    if priority_list and if_p_stopped():
+    if priority_list:
         data = Priority.priority_go(data)
     # if default list not empty and if default cars stopped
-    if default_list and if_d_stopped():
+    if default_list:
         data = Default.default_go(data)
     # if generous list not empty and if generous cars stopped
-    if generous_list and if_g_stopped():
+    if generous_list:
         data = Generous.generous_go(data)
     return data
+
+
+def stopped_cars():
+    for car in range(0, len(stop_list)):
+        if traci.vehicle.getStopState(stop_list[car]) == 1:
+            if stop_list[car] not in stopped_list:
+                stopped_list.append(stop_list[car])
 
 
 # checks if any cars in priority list have stopped
@@ -73,32 +83,32 @@ def policy_checker(data):
 
 
 def priority_check(data):
-    for car in range(0, len(stop_list)):
+    for car in range(0, len(stopped_list)):
         # makes string with car reputation in dataframe
-        car_rep = stop_list[car] + ".policy"
+        car_rep = stopped_list[car] + ".policy"
         # matches if priority for car
         if data[car_rep][0] == "priority":
             # only adds once to list
-            if stop_list[car] not in priority_list:
-                priority_list.append(stop_list[car])
+            if stopped_list[car] not in priority_list:
+                priority_list.append(stopped_list[car])
 
 
 def default_check(data):
-    for car in range(0, len(stop_list)):
-        car_rep = stop_list[car] + ".policy"
+    for car in range(0, len(stopped_list)):
+        car_rep = stopped_list[car] + ".policy"
         # matches if default for car
         if data[car_rep][0] == "default":
-            if stop_list[car] not in default_list:
-                default_list.append(stop_list[car])
+            if stopped_list[car] not in default_list:
+                default_list.append(stopped_list[car])
 
 
 def generous_check(data):
-    for car in range(0, len(stop_list)):
-        car_rep = stop_list[car] + ".policy"
+    for car in range(0, len(stopped_list)):
+        car_rep = stopped_list[car] + ".policy"
         # matches if generous for car
         if data[car_rep][0] == "generous":
-            if stop_list[car] not in generous_list:
-                generous_list.append(stop_list[car])
+            if stopped_list[car] not in generous_list:
+                generous_list.append(stopped_list[car])
 
 
 def random_go(vehicle):
@@ -107,5 +117,3 @@ def random_go(vehicle):
     # checks if vehicle at random index is stopped and if stopped then resume
     if traci.vehicle.getStopState(vehicle[togo]) == 1:
         traci.vehicle.resume(vehicle[togo])
-
-

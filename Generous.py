@@ -16,7 +16,7 @@ def generous_go(data):
         VehicleControls.remove_stop(CreditPolicy.generous_list, highest_rep)
         return data
 
-    while CreditPolicy.if_g_stopped():
+    while CreditPolicy.generous_list():
         highest_rep = Reputation.check_highest_reputation(CreditPolicy.generous_list, data)
         if len(highest_rep) > 1:
             highest_credit = Credit.check_highest_credit(CreditPolicy.generous_list, data)
