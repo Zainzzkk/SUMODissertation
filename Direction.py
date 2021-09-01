@@ -12,7 +12,8 @@ def direction_check(neighbours):
             # checks direction for each vehicle
             route_direction(neighbours[neighbour])
     # checks if clash after adding to direction list
-    check_clash(neighbours)
+
+    return check_clash(neighbours)
 
 
 def route_direction(neighbour):
@@ -28,19 +29,21 @@ def check_clash(neighbours):
     # east and south clash so will set stop
     if ('E' in direction) and ('S' in direction):
         set_stop(neighbours)
-        return
+        return True
     # east and north clash so will set stop
     if ('E' in direction) and ('N' in direction):
         set_stop(neighbours)
-        return
+        return True
     # west and south clash so sets stop
     if ('W' in direction) and ('S' in direction):
         set_stop(neighbours)
-        return
+        return True
     # west and north clash so sets stop
     if ('W' in direction) and ('N' in direction):
         set_stop(neighbours)
-        return
+        return True
+
+    return False
 
 
 # function to set the stop

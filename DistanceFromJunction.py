@@ -25,8 +25,9 @@ def Distance(vehicles):
     # checks if stop_list is empty or not
     if CreditPolicy.stop_list:
         # only stops if clashing direction
-        Direction.direction_check(CreditPolicy.stop_list)
-        # resumes based on when reached junction
+        if not Direction.direction_check(CreditPolicy.stop_list):
+            CreditPolicy.stop_list.clear()
+
 
 # checks which car closest to junction
 def closest_to_junction(neighbours):
