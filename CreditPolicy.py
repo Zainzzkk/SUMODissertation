@@ -29,13 +29,12 @@ def credit_policy(vehicles, data):
     # only want to do these if stopped cars or else wasting resources
     if priority_list and if_p_stopped():
         data = Priority.priority_go(data)
-    print(priority_list)
     # if default list not empty and if default cars stopped
-    # if default_list and if_d_stopped():
-    #     data = Default.default_go(data)
-    # # if generous list not empty and if generous cars stopped
-    # if generous_list and if_g_stopped():
-    #     data = Generous.generous_go(data)
+    if default_list and if_d_stopped():
+        data = Default.default_go(data)
+    # if generous list not empty and if generous cars stopped
+    if generous_list and if_g_stopped():
+        data = Generous.generous_go(data)
     return data
 
 

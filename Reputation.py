@@ -16,6 +16,6 @@ def check_highest_reputation(vehicles, data):
     for car in range(0, len(vehicles)):
         car_rep = vehicles[car] + ".reputation"
         if data[car_rep][0] == max_rep:
-            highest_rep.append(vehicles)
+            highest_rep.append(vehicles[car])
 
     return highest_rep
