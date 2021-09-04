@@ -1,7 +1,7 @@
 {
     "Car": {
         "reputation": 10,
-        "credits": 100,
+        "credits": 1,
         "policy": "priority"
     },
     "Cara": {
@@ -10,12 +10,12 @@
         "policy": "default"
     },
     "Car1":{
-        "reputation": 10,
+        "reputation": 3,
         "credits": 100,
         "policy": "priority"
     },
     "Car1a": {
-        "reputation": 10,
+        "reputation": 3,
         "credits": 100,
         "policy": "priority"
     },
@@ -31,7 +31,7 @@
     },
     "Car3": {
         "reputation": 5,
-        "credits": 100,
+        "credits": 2,
         "policy": "priority"
     },
     "Car3a": {
