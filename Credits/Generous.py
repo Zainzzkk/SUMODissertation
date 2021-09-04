@@ -1,7 +1,4 @@
-import CreditPolicy
-import Reputation
-from CreditPolicy import Credit
-import VehicleControls
+from Credits import CreditPolicy, Reputation, Credit, VehicleControls
 
 
 def generous_go(data):

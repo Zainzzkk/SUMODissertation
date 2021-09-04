@@ -1,7 +1,4 @@
-from CreditPolicy import Credit
-import CreditPolicy
-import Reputation
-import VehicleControls
+from Credits import Credit, CreditPolicy, Reputation, VehicleControls
 
 
 def priority_go(data):

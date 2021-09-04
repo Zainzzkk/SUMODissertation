@@ -4,7 +4,7 @@ import traci
 import json
 
 def read_reputation():
-    with open('../policy.json') as data_file:
+    with open('policy.json') as data_file:
         data = json.load(data_file)
 
     df = pd.json_normalize(data)

@@ -1,7 +1,7 @@
 import traci
 
 import Direction
-import CreditPolicy
+from Credits import CreditPolicy
 
 
 def Distance(vehicles):

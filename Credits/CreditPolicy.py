@@ -1,10 +1,7 @@
 import traci
 from random import randrange
 
-import Default
-import DistanceFromJunction
-import Generous
-import Priority
+from Credits import Default, DistanceFromJunction, Generous, Priority
 
 # list of cars which have to stop
 stop_list = []

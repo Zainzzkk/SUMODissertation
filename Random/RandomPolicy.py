@@ -1,7 +1,7 @@
 import traci
 import traci.constants
 from random import randrange
-import RandomDirection
+from Random import RandomDirection
 
 
 def random_policy(vehicles):
