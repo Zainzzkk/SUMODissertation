@@ -1,7 +1,9 @@
 import traci
 
-import Direction
-import CreditPolicy
+import RandomDirection
+
+# global list of vehicles to be stopped
+stop_list = []
 
 
 def Distance(vehicles):
@@ -15,18 +17,19 @@ def Distance(vehicles):
             # goes through neighbours
             for to_stop in range(0, len(neighbourcar)):
                 # checks that neighbour not already in stop_list
-                if neighbourcar[to_stop] not in CreditPolicy.stop_list:
+                if neighbourcar[to_stop] not in stop_list:
                     # checks that ID not the same as first car
                     # checks that car has not already passed junction
                     if to_stop != neighbour_id and passed_junction(neighbourcar[to_stop]):
                         # adds to stop list
-                        CreditPolicy.stop_list.append(neighbourcar[to_stop])
+                        stop_list.append(neighbourcar[to_stop])
 
     # checks if stop_list is empty or not
-    if CreditPolicy.stop_list:
+    if stop_list:
         # only stops if clashing direction
-        if not Direction.direction_check(CreditPolicy.stop_list):
-            CreditPolicy.stop_list.clear()
+        RandomDirection.direction_check(stop_list)
+        # resumes based on when reached junction
+        to_go(stop_list)
 
 
 # checks which car closest to junction
@@ -52,3 +55,12 @@ def passed_junction(vehicle):
 
     return True
 
+
+def to_go(stopped):
+    # resumes in order of reaching junction
+    for resume in range(0, len(stopped)):
+        # checks if vehicle still in simulation
+        vehicles = traci.vehicle.getIDList()
+        if stopped[resume] in vehicles:
+            if traci.vehicle.getStopState(stopped[resume]) == 1:
+                traci.vehicle.resume(stopped[resume])

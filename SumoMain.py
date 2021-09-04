@@ -8,6 +8,8 @@ import traci.constants as tc
 
 import CreditPolicy
 import CreditSystem
+import RandomPolicy
+import DistanceFromJunctionNoPolicy
 
 if 'SUMO_HOME' in os.environ:
     tools = os.path.join(os.environ['SUMO_HOME'], 'tools')
@@ -40,7 +42,9 @@ while j < 80:
     time.sleep(0.2)
     traci.simulationStep()
     vehicles = traci.vehicle.getIDList()
-    df = CreditPolicy.credit_policy(vehicles, df)
+    # df = CreditPolicy.credit_policy(vehicles, df)
+    # RandomPolicy.random_policy(vehicles)
+    DistanceFromJunctionNoPolicy.Distance(vehicles)
     j = j + 1
 
 traci.close()
