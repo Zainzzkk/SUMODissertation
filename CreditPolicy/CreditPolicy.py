@@ -1,10 +1,7 @@
 import traci
-import pandas as pd
 from random import randrange
 
 import Default
-import Direction
-import CreditSystem
 import DistanceFromJunction
 import Generous
 import Priority

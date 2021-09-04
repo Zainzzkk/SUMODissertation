@@ -2,9 +2,7 @@ import traci
 from random import randrange
 
 import CreditPolicy
-import Default
-import Generous
-import Priority
+from CreditPolicy import Default, Generous, Priority
 
 
 # removes the stop for a single vehicle

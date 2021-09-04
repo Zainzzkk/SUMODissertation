@@ -1,15 +1,11 @@
-import json
 import os
 import sys
 import time
-import pandas as pd
 
 import traci.constants as tc
 
-import CreditPolicy
-import CreditSystem
-import RandomPolicy
-import DistanceFromJunctionNoPolicy
+from CreditPolicy import CreditSystem
+from FirstToReach import DistanceFromJunctionNoPolicy
 
 if 'SUMO_HOME' in os.environ:
     tools = os.path.join(os.environ['SUMO_HOME'], 'tools')

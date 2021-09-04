@@ -1,6 +1,6 @@
 import traci
 
-import RandomDirection
+from Random import RandomDirection
 
 # global list of vehicles to be stopped
 stop_list = []

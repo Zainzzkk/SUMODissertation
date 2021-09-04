@@ -1,8 +1,4 @@
-import traci
-import pandas as pd
-from random import randrange
-
-import Credit
+from CreditPolicy import Credit
 import CreditPolicy
 import Reputation
 import VehicleControls
