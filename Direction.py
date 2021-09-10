@@ -1,5 +1,7 @@
 import traci
 
+from Credits import DistanceFromJunction
+
 # list for direction of neighbouring cars
 direction = []
 
@@ -58,7 +60,7 @@ def set_stop(neighbours):
             # gets distance of lane that car is on
             distance = traci.lane.getLength(full_current_edge)
             # only sets stop if car has not reached junction, else no need for stop
-            if traci.vehicle.getDistance(neighbours[i]) < distance:
+            if DistanceFromJunction.passed_junction(neighbours[i]):
                 try:
                     traci.vehicle.setStop(neighbours[i], traci.vehicle.getRoadID(neighbours[i]), distance, 0,
                                           100, 0)

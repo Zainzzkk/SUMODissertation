@@ -176,5 +176,5 @@ def amount_to_transfer(vehicle, credit, data):
     new_stop_credit = stop_credit + credit
     # changes credit on car
     data[stop_cred] = data[stop_cred].replace([stop_credit], new_stop_credit)
-    print(vehicle, " credit changed to ", data[stop_cred][0])
+    #print(vehicle, " credit changed to ", data[stop_cred][0])
     return data

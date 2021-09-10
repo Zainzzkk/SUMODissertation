@@ -53,9 +53,98 @@ def set_stop(neighbours):
             # gets distance of lane that car is on
             distance = traci.lane.getLength(full_current_edge)
             # only sets stop if car has not reached junction, else no need for stop
-            if traci.vehicle.getDistance(neighbours[i]) < distance:
+            if passed_junction(neighbours[i]):
                 try:
                     traci.vehicle.setStop(neighbours[i], traci.vehicle.getRoadID(neighbours[i]), distance, 0,
                                           10, 0)
                 except traci.exceptions.TraCIException:
                     pass
+
+
+# checks if car passed junction
+def passed_junction(vehicle):
+    # gets route of vehicle and checks if current edge same as first edge on route
+    if traci.vehicle.getRouteID(vehicle) == "E":
+        if (traci.vehicle.getRoadID(vehicle) == "11E") or (
+                traci.vehicle.getRoadID(vehicle) == "11W") or other_junction_ids(vehicle):
+            if traci.vehicle.getRouteID(vehicle) in direction:
+                direction.remove(traci.vehicle.getRouteID(vehicle))
+            return False
+
+    if traci.vehicle.getRouteID(vehicle) == "W":
+        if (traci.vehicle.getRoadID(vehicle) == "11W") or (
+                traci.vehicle.getRoadID(vehicle) == "11E") or other_junction_ids(vehicle):
+            if traci.vehicle.getRouteID(vehicle) in direction:
+                direction.remove(traci.vehicle.getRouteID(vehicle))
+            return False
+
+    if traci.vehicle.getRouteID(vehicle) == "N":
+        if (traci.vehicle.getRoadID(vehicle) == "11N") or (
+                traci.vehicle.getRoadID(vehicle) == "11S") or other_junction_ids(vehicle):
+            if traci.vehicle.getRouteID(vehicle) in direction:
+                direction.remove(traci.vehicle.getRouteID(vehicle))
+            return False
+
+    if traci.vehicle.getRouteID(vehicle) == "S":
+        if (traci.vehicle.getRoadID(vehicle) == "11S") or (
+                traci.vehicle.getRoadID(vehicle) == "11N") or other_junction_ids(vehicle):
+            if traci.vehicle.getRouteID(vehicle) in direction:
+                direction.remove(traci.vehicle.getRouteID(vehicle))
+            return False
+
+    return True
+
+
+def other_junction_ids(vehicle):
+    road_id = traci.vehicle.getRoadID(vehicle)
+
+    if road_id == ":01_0":
+        return True
+    if road_id == ":10_0":
+        return True
+    if road_id == ":11_0":
+        return True
+    if road_id == ":11_1":
+        return True
+    if road_id == ":11_10":
+        return True
+    if road_id == ":11_11":
+        return True
+    if road_id == ":11_13":
+        return True
+    if road_id == ":11_14":
+        return True
+    if road_id == ":11_15":
+        return True
+    if road_id == ":11_16":
+        return True
+    if road_id == ":11_18":
+        return True
+    if road_id == ":11_19":
+        return True
+    if road_id == ":11_20":
+        return True
+    if road_id == ":11_21":
+        return True
+    if road_id == ":11_22":
+        return True
+    if road_id == ":11_23":
+        return True
+    if road_id == ":11_3":
+        return True
+    if road_id == ":11_4":
+        return True
+    if road_id == ":11_5":
+        return True
+    if road_id == ":11_6":
+        return True
+    if road_id == ":11_8":
+        return True
+    if road_id == ":11_9":
+        return True
+    if road_id == ":12_0":
+        return True
+    if road_id == ":21_0":
+        return True
+
+    return False

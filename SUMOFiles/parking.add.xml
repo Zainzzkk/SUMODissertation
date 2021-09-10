@@ -1,0 +1,6 @@
+<additional>
+    <parkingArea id="ParkAreaE" lane="11E_0" startPos="150" friendlyPos="true" onRoad="true" roadsideCapacity="2" angle="0" length="50"/>
+    <parkingArea id="ParkAreaW" lane="11W_0" startPos="150" friendlyPos="true" onRoad="true" roadsideCapacity="2" angle="0" length="50" />
+    <parkingArea id="ParkAreaS" lane="11S_0" startPos="150" friendlyPos="true" onRoad="true" roadsideCapacity="2" angle="0" length="50" />
+    <parkingArea id="ParkAreaN" lane="11N_0" startPos="150" friendlyPos="true" onRoad="true" roadsideCapacity="2" angle="0" length="50" />
+</additional>

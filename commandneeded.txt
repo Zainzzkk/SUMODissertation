@@ -1,2 +1,2 @@
-netconvert --node-files=sumomain.nod.xml --edge-files=sumomain.edg.xml -o sumomain.net.xml
+netconvert --node-files=sumomain.nod.xml --edge-files=sumomain.edg.xml --add-files=parking.add.xml -o sumomain.net.xml
 sumo-gui.exe -c "D:\OneDrive - University of Bristol\SUMO\SUMO1\sumomain.sumo.cfg" --collision.mingap-factor 2 --collision. action warn --collision.stoptime 50
