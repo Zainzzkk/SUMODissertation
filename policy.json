@@ -1,42 +1,42 @@
 {
     "Car": {
         "reputation": 10,
-        "credits": 1,
-        "policy": "priority"
+        "credits": 100,
+        "policy": "generous"
     },
     "Cara": {
         "reputation": 10,
         "credits": 100,
-        "policy": "default"
+        "policy": "generous"
     },
     "Car1":{
-        "reputation": 3,
+        "reputation": 10,
         "credits": 100,
-        "policy": "priority"
+        "policy": "generous"
     },
     "Car1a": {
-        "reputation": 3,
+        "reputation": 10,
         "credits": 100,
-        "policy": "priority"
+        "policy": "generous"
     },
     "Car2": {
         "reputation": 10,
         "credits": 100,
-        "policy": "default"
+        "policy": "generous"
     },
     "Car2a": {
         "reputation": 10,
         "credits": 100,
-        "policy": "default"
+        "policy": "generous"
     },
     "Car3": {
-        "reputation": 5,
-        "credits": 2,
-        "policy": "priority"
+        "reputation": 10,
+        "credits": 100,
+        "policy": "generous"
     },
     "Car3a": {
         "reputation": 10,
         "credits": 100,
-        "policy": "default"
+        "policy": "generous"
     }
 }

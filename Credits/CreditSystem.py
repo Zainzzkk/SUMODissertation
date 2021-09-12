@@ -2,6 +2,8 @@ import os
 import pandas as pd
 import traci
 import json
+from random import randrange
+
 
 def read_reputation():
     with open('policy.json') as data_file:
@@ -9,6 +11,19 @@ def read_reputation():
 
     df = pd.json_normalize(data)
     return df
+
+
+def random_rep(data, vehicles):
+    for car in range(0, len(vehicles)):
+        car_policy = vehicles[car] + ".policy"
+        random_num = randrange(0, 3)
+        if random_num == 0:
+            data[car_policy][0] = "priority"
+        if random_num == 1:
+            data[car_policy][0] = "default"
+        if random_num == 2:
+            data[car_policy][0] = "generous"
+
 
 # def write_credit_to_json(data, filename="credits.json"):
 #     with open(filename, "w") as f:

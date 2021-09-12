@@ -19,28 +19,28 @@
     <route edges="11S 12N" id="SUN"/>
 
     <vehicle id="Car" depart="0" route="E" departLane="0">
-         <stop parkingArea="ParkAreaE" duration="20"/>
+<!--         <stop parkingArea="ParkAreaE" duration="20"/>-->
     </vehicle>
     <vehicle id="Cara" depart="0" route="E" departLane="1">
-         <stop parkingArea="ParkAreaE" duration="20"/>
+<!--         <stop parkingArea="ParkAreaE" duration="20"/>-->
     </vehicle>
     <vehicle id="Car1" depart="0" route="W" departLane="0">
-         <stop parkingArea="ParkAreaW" duration="20"/>
+<!--         <stop parkingArea="ParkAreaW" duration="20"/>-->
     </vehicle>
     <vehicle id="Car1a" depart="0" route="W" departLane="1">
-         <stop parkingArea="ParkAreaW" duration="20"/>
+<!--         <stop parkingArea="ParkAreaW" duration="20"/>-->
     </vehicle>
     <vehicle id="Car2" depart="0" route="S" departLane="0">
-         <stop parkingArea="ParkAreaS" duration="20"/>
+<!--         <stop parkingArea="ParkAreaS" duration="20"/>-->
     </vehicle>
     <vehicle id="Car2a" depart="0" route="S" departLane="1">
-         <stop parkingArea="ParkAreaS" duration="20"/>
+<!--         <stop parkingArea="ParkAreaS" duration="20"/>-->
     </vehicle>
     <vehicle id="Car3" depart="0" route="N" departLane="0">
-         <stop parkingArea="ParkAreaN" duration="20"/>
+<!--         <stop parkingArea="ParkAreaN" duration="20"/>-->
     </vehicle>
     <vehicle id="Car3a" depart="0" route="N" departLane="1">
-         <stop parkingArea="ParkAreaN" duration="20"/>
+<!--         <stop parkingArea="ParkAreaN" duration="20"/>-->
     </vehicle>
 
 </routes>

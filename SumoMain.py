@@ -27,34 +27,35 @@ traci.gui.setSchema("View #0", "real world")
 vehicles = traci.simulation.getLoadedIDList()
 df = CreditSystem.read_reputation()
 
-iii = traci.simulation.getLoadedIDList()
+all_vehicles = traci.simulation.getLoadedIDList()
 
+speed_data, waiting_time, credit = Graphs.create_object(vehicles)
 
 for veh in range(0, len(vehicles)):
-    # subscribes to check for neighbours 60m away
-    traci.vehicle.subscribeContext(vehicles[veh], tc.CMD_GET_VEHICLE_VARIABLE, 100, [tc.VAR_SPEED])
+    # subscribes to check for neighbours 75m away
+    traci.vehicle.subscribeContext(vehicles[veh], tc.CMD_GET_VEHICLE_VARIABLE, 75, [tc.VAR_SPEED])
 
-j = 0
+CreditSystem.random_rep(df, vehicles)
 
-while j < 300:
+traci.simulationStep()
+speed_data = Graphs.speed_record(speed_data, vehicles)
+waiting_time = Graphs.waiting_time(waiting_time, vehicles)
+credit = Graphs.credit_track(credit, df, vehicles)
+# runs until no cars left in simulation
+while traci.vehicle.getIDList():
     # this runs one simulation step
-    time.sleep(0.2)
+    time.sleep(0.05)
     traci.simulationStep()
     vehicles = traci.vehicle.getIDList()
-    # df = CreditPolicy.credit_policy(vehicles, df)
+    df = CreditPolicy.credit_policy(vehicles, df)
     # RandomPolicy.random_policy(vehicles)
     # DistanceFromJunctionNoPolicy.Distance(vehicles)
-    Graphs.sim_time()
-    j = j + 1
-
+    speed_data = Graphs.speed_record(speed_data, vehicles)
+    waiting_time = Graphs.waiting_time(waiting_time, vehicles)
+    credit = Graphs.credit_track(credit, df, vehicles)
 
 traci.close()
 
-# for car in range(0, len(iii)):
-#     car_rep = iii[car] + ".reputation"
-#     car_policy = iii[car] + ".policy"
-#     car_credits = iii[car] + ".credits"
-#     print(iii[car])
-#     print(df[car_rep][0])
-#     print(df[car_policy][0])
-#     print(df[car_credits][0])
+Graphs.export_speed(speed_data)
+Graphs.export_wait(waiting_time)
+Graphs.export_credits(credit)
