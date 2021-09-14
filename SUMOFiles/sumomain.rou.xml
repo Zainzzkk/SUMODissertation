@@ -1,13 +1,13 @@
 <routes>
 
-    <vType accel="1000000000" decel="1000000000" id="Car" maxSpeed="30" />
-    <vType accel="1000000000" decel="1000000000" id="Cara" maxSpeed="30" />
-    <vType accel="1000000000" decel="1000000000" id="Car1" maxSpeed="30" />
-    <vType accel="1000000000" decel="1000000000" id="Car1a" maxSpeed="30"/>
-    <vType accel="1000000000" decel="1000000000" id="Car2" maxSpeed="30" />
-    <vType accel="1000000000" decel="1000000000" id="Car2a" maxSpeed="30" />
-    <vType accel="1000000000" decel="1000000000" id="Car3" maxSpeed="30" />
-    <vType accel="1000000000" decel="1000000000" id="Car3a" maxSpeed="30"/>
+    <vType accel="1000000000" decel="1000000000" id="Car" maxSpeed="20" />
+    <vType accel="1000000000" decel="1000000000" id="Cara" maxSpeed="20" />
+    <vType accel="1000000000" decel="1000000000" id="Car1" maxSpeed="20" />
+    <vType accel="1000000000" decel="1000000000" id="Car1a" maxSpeed="20"/>
+    <vType accel="1000000000" decel="1000000000" id="Car2" maxSpeed="20" />
+    <vType accel="1000000000" decel="1000000000" id="Car2a" maxSpeed="20" />
+    <vType accel="1000000000" decel="1000000000" id="Car3" maxSpeed="20" />
+    <vType accel="1000000000" decel="1000000000" id="Car3a" maxSpeed="20"/>
 
     <route edges="01E 11E 21W 11W" id="E" repeat="2"/>
     <route edges="21W 11W 01E 11E" id="W" repeat="2"/>

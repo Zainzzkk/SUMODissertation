@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2021-09-14 19:05:36 by Eclipse SUMO GUI Version 1.9.2
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="SUMOFiles/sumomain.net.xml"/>
+        <route-files value="SUMOFiles/sumomain.rou.xml"/>
+    </input>
+
+    <output>
+        <tripinfo-output value="SUMOFiles/DistanceFromJunction2Trip"/>
+    </output>
+
+    <time>
+        <begin value="0"/>
+    </time>
+
+    <traci_server>
+        <remote-port value="65331"/>
+    </traci_server>
+
+    <gui_only>
+        <start value="true"/>
+    </gui_only>
+
+</configuration>
+-->
+
+<tripinfos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/tripinfo_file.xsd">
+    <tripinfo id="Car3" depart="0.00" departLane="12N_0" departPos="5.10" departSpeed="0.00" departDelay="0.00" arrival="235.00" arrivalLane="11S_0" arrivalPos="189.60" arrivalSpeed="20.03" duration="235.00" routeLength="2418.25" waitingTime="6.00" waitingCount="4" stopTime="32.00" timeLoss="83.31" rerouteNo="0" devices="tripinfo_Car3" vType="DEFAULT_VEHTYPE" speedFactor="1.05" vaporized=""/>
+    <tripinfo id="Car3a" depart="3.00" departLane="12N_0" departPos="5.10" departSpeed="0.00" departDelay="3.00" arrival="246.00" arrivalLane="11S_0" arrivalPos="189.60" arrivalSpeed="16.98" duration="243.00" routeLength="2418.25" waitingTime="6.00" waitingCount="4" stopTime="18.00" timeLoss="83.31" rerouteNo="0" devices="tripinfo_Car3a" vType="DEFAULT_VEHTYPE" speedFactor="0.89" vaporized=""/>
+    <tripinfo id="Car" depart="0.00" departLane="01E_0" departPos="5.10" departSpeed="0.00" departDelay="0.00" arrival="252.00" arrivalLane="11W_0" arrivalPos="189.60" arrivalSpeed="20.77" duration="252.00" routeLength="2418.25" waitingTime="9.00" waitingCount="5" stopTime="37.00" timeLoss="96.26" rerouteNo="0" devices="tripinfo_Car" vType="DEFAULT_VEHTYPE" speedFactor="1.06" vaporized=""/>
+    <tripinfo id="Car2" depart="0.00" departLane="10S_0" departPos="5.10" departSpeed="0.00" departDelay="0.00" arrival="256.00" arrivalLane="11N_0" arrivalPos="189.60" arrivalSpeed="20.45" duration="256.00" routeLength="2418.25" waitingTime="3.00" waitingCount="2" stopTime="38.00" timeLoss="95.98" rerouteNo="0" devices="tripinfo_Car2" vType="DEFAULT_VEHTYPE" speedFactor="1.03" vaporized=""/>
+    <tripinfo id="Car1a" depart="3.00" departLane="21W_0" departPos="5.10" departSpeed="0.00" departDelay="3.00" arrival="261.00" arrivalLane="11E_0" arrivalPos="189.60" arrivalSpeed="21.29" duration="258.00" routeLength="2418.25" waitingTime="11.00" waitingCount="6" stopTime="31.00" timeLoss="111.45" rerouteNo="0" devices="tripinfo_Car1a" vType="DEFAULT_VEHTYPE" speedFactor="1.08" vaporized=""/>
+    <tripinfo id="Car2a" depart="3.00" departLane="10S_0" departPos="5.10" departSpeed="0.00" departDelay="3.00" arrival="268.00" arrivalLane="11N_0" arrivalPos="189.60" arrivalSpeed="16.02" duration="265.00" routeLength="2418.25" waitingTime="12.00" waitingCount="4" stopTime="13.00" timeLoss="100.77" rerouteNo="0" devices="tripinfo_Car2a" vType="DEFAULT_VEHTYPE" speedFactor="0.83" vaporized=""/>
+    <tripinfo id="Cara" depart="3.00" departLane="01E_0" departPos="5.10" departSpeed="0.00" departDelay="3.00" arrival="270.00" arrivalLane="11W_0" arrivalPos="189.60" arrivalSpeed="18.51" duration="267.00" routeLength="2418.25" waitingTime="28.00" waitingCount="6" stopTime="26.00" timeLoss="107.58" rerouteNo="0" devices="tripinfo_Cara" vType="DEFAULT_VEHTYPE" speedFactor="0.94" vaporized=""/>
+    <tripinfo id="Car1" depart="0.00" departLane="21W_0" departPos="5.10" departSpeed="0.00" departDelay="0.00" arrival="276.00" arrivalLane="11E_0" arrivalPos="189.60" arrivalSpeed="19.67" duration="276.00" routeLength="2418.25" waitingTime="30.00" waitingCount="6" stopTime="37.00" timeLoss="114.31" rerouteNo="0" devices="tripinfo_Car1" vType="DEFAULT_VEHTYPE" speedFactor="1.01" vaporized=""/>
+</tripinfos>
