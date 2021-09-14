@@ -1,17 +1,33 @@
-from Credits import CreditPolicy, Reputation, Credit, VehicleControls
+from Credits import CreditPolicy, Reputation, Credit, VehicleControls, Priority, Default
 
 
 def generous_go(data):
     highest_rep = []
     highest_credit = []
-
+    # CreditPolicy.stopped_cars()
+    # CreditPolicy.policy_checker(data)
+    # while CreditPolicy.priority_list_unstop:
+    #     CreditPolicy.stopped_cars()
+    #     CreditPolicy.policy_checker(data)
+    #     data = Priority.priority_go(data)
+    # while CreditPolicy.default_list_unstop:
+    #     CreditPolicy.stopped_cars()
+    #     CreditPolicy.policy_checker(data)
+    #     data = Default.default_go(data)
+    # CreditPolicy.stopped_cars()
+    # CreditPolicy.policy_checker(data)
     # if only 1 car in generous list
     if len(CreditPolicy.generous_list) == 1:
+        # CreditPolicy.stopped_cars()
+        # CreditPolicy.policy_checker(data)
         highest_rep, data = VehicleControls.remove_stop(CreditPolicy.generous_list, highest_rep, data)
         return data
-
+    # CreditPolicy.stopped_cars()
+    # CreditPolicy.policy_checker(data)
     # while cars on generous list
     while CreditPolicy.generous_list:
+        # CreditPolicy.stopped_cars()
+        # CreditPolicy.policy_checker(data)
         highest_rep = Reputation.check_highest_reputation(CreditPolicy.generous_list, data)
         if len(highest_rep) > 1:
             highest_credit = Credit.check_highest_credit(CreditPolicy.generous_list, data)

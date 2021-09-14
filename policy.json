@@ -7,36 +7,36 @@
     "Cara": {
         "reputation": 10,
         "credits": 100,
-        "policy": "generous"
+        "policy": "priority"
     },
     "Car1":{
         "reputation": 10,
         "credits": 100,
-        "policy": "generous"
+        "policy": "priority"
     },
     "Car1a": {
         "reputation": 10,
-        "credits": 100,
-        "policy": "generous"
+        "credits": 20,
+        "policy": "priority"
     },
     "Car2": {
         "reputation": 10,
         "credits": 100,
-        "policy": "generous"
+        "policy": "priority"
     },
     "Car2a": {
         "reputation": 10,
         "credits": 100,
-        "policy": "generous"
+        "policy": "priority"
     },
     "Car3": {
         "reputation": 10,
         "credits": 100,
-        "policy": "generous"
+        "policy": "priority"
     },
     "Car3a": {
         "reputation": 10,
         "credits": 100,
-        "policy": "generous"
+        "policy": "priority"
     }
 }

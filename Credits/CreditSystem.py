@@ -18,11 +18,14 @@ def random_rep(data, vehicles):
         car_policy = vehicles[car] + ".policy"
         random_num = randrange(0, 3)
         if random_num == 0:
-            data[car_policy][0] = "priority"
+            #data[car_policy][0] = "priority"
+            data[car_policy] = data[car_policy].replace([data[car_policy][0]], "priority")
         if random_num == 1:
-            data[car_policy][0] = "default"
+            #data[car_policy][0] = "default"
+            data[car_policy] = data[car_policy].replace([data[car_policy][0]], "default")
         if random_num == 2:
-            data[car_policy][0] = "generous"
+            #data[car_policy][0] = "generous"
+            data[car_policy] = data[car_policy].replace([data[car_policy][0]], "generous")
 
 
 # def write_credit_to_json(data, filename="credits.json"):

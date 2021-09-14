@@ -11,7 +11,7 @@ def Distance(vehicles):
         if neighbours:
             neighbourcar = list(neighbours)
             # returns id of the car which is first to junction
-            neighbour_id = closest_to_junction(neighbourcar)
+            # neighbour_id = closest_to_junction(neighbourcar)
             # goes through neighbours
             for to_stop in range(0, len(neighbourcar)):
                 if passed_junction(neighbourcar[to_stop]):
@@ -19,7 +19,7 @@ def Distance(vehicles):
                     if neighbourcar[to_stop] not in CreditPolicy.stop_list:
                         # checks that ID not the same as first car
                         # checks that car has not already passed junction
-                        if to_stop != neighbour_id and passed_junction(neighbourcar[to_stop]):
+                        if passed_junction(neighbourcar[to_stop]):
                             # adds to stop list
                             CreditPolicy.stop_list.append(neighbourcar[to_stop])
 

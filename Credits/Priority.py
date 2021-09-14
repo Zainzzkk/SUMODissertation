@@ -14,7 +14,6 @@ def priority_go(data):
     if len(CreditPolicy.priority_list) == 1:
         highest_rep, data = VehicleControls.remove_stop(CreditPolicy.priority_list, highest_rep, data)
         return data
-
     # loop checking for next highest until list cleared
     while CreditPolicy.priority_list:
         # checks which car has highest reputation
@@ -62,10 +61,10 @@ def remove_prior_list(to_remove, data):
         car_policy = to_remove[car] + ".policy"
         # change policy to default
         data[car_policy] = data[car_policy].replace(["priority"], "default")
-        print("policy changed on: ", to_remove[car], " ", data[car_policy][0])
+        #print("policy changed on: ", to_remove[car], " ", data[car_policy][0])
         # add to default list
         CreditPolicy.default_list.append(to_remove[car])
-        print("removed ", to_remove[car])
+        #print("removed ", to_remove[car])
         # remove from priority
         CreditPolicy.priority_list.remove(to_remove[car])
 
@@ -134,7 +133,7 @@ def priority_credit_transfer(vehicle, data):
             # changes credit to new credit
             # matches old credit and changes that value
             data[car_credit] = data[car_credit].replace([car_credit_int], new_car_credit_int)
-            print(vehicle, " credit changed to ", data[car_credit][0])
+           #print(vehicle, " credit changed to ", data[car_credit][0])
 
     # if average reputation
     if 5 <= car_rep_int <= 7:
@@ -148,7 +147,7 @@ def priority_credit_transfer(vehicle, data):
             new_car_credit_int = car_credit_int - 4
             # changes car credit
             data[car_credit] = data[car_credit].replace([car_credit_int], new_car_credit_int)
-            print(vehicle, " credit changed to ", data[car_credit][0])
+            #print(vehicle, " credit changed to ", data[car_credit][0])
 
     # good reputation
     if 8 <= car_rep_int <= 10:
@@ -161,7 +160,7 @@ def priority_credit_transfer(vehicle, data):
             new_car_credit_int = car_credit_int - 2
             # changes credit
             data[car_credit] = data[car_credit].replace([car_credit_int], new_car_credit_int)
-            print(vehicle, " credit changed to ", data[car_credit][0])
+            #print(vehicle, " credit changed to ", data[car_credit][0])
 
     return data
 

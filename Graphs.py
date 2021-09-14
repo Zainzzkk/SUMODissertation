@@ -23,17 +23,17 @@ def speed_record(speed_data, vehicles):
 
 
 def export_speed(speed_data):
-    with open('./PolicyRecording/CreditPolicyRandom3Speed.json', 'w', encoding='utf-8') as f:
+    with open('./PolicyRecording/CreditPolicyAllPriority1Speed75m.json', 'w', encoding='utf-8') as f:
         json.dump(speed_data, f, ensure_ascii=False, indent=4)
 
 
 def export_wait(wait_time):
-    with open('./PolicyRecording/CreditPolicyRandom3wait.json', 'w', encoding='utf-8') as f:
+    with open('./PolicyRecording/CreditPolicyAllPriority1wait75m.json', 'w', encoding='utf-8') as f:
         json.dump(wait_time, f, ensure_ascii=False, indent=4)
 
 
 def export_credits(credit):
-    with open('./PolicyRecording/CreditPolicyRandom3Credits.json', 'w') as f:
+    with open('./PolicyRecording/CreditPolicyAllPriority1Credits75m.json', 'w') as f:
         json.dump(credit, f, indent=4)
 
 

@@ -8,6 +8,7 @@ from Credits import CreditSystem, CreditPolicy
 from FirstToReach import DistanceFromJunctionNoPolicy
 from Random import RandomPolicy
 import Graphs
+import released
 
 if 'SUMO_HOME' in os.environ:
     tools = os.path.join(os.environ['SUMO_HOME'], 'tools')
@@ -33,18 +34,21 @@ speed_data, waiting_time, credit = Graphs.create_object(vehicles)
 
 for veh in range(0, len(vehicles)):
     # subscribes to check for neighbours 75m away
-    traci.vehicle.subscribeContext(vehicles[veh], tc.CMD_GET_VEHICLE_VARIABLE, 75, [tc.VAR_SPEED])
+    traci.vehicle.subscribeContext(vehicles[veh], tc.CMD_GET_VEHICLE_VARIABLE, 65, [tc.VAR_SPEED])
 
-CreditSystem.random_rep(df, vehicles)
+# CreditSystem.random_rep(df, vehicles)
 
 traci.simulationStep()
+df = CreditPolicy.credit_policy(vehicles, df)
+# RandomPolicy.random_policy(vehicles)
+# DistanceFromJunctionNoPolicy.Distance(vehicles)
 speed_data = Graphs.speed_record(speed_data, vehicles)
 waiting_time = Graphs.waiting_time(waiting_time, vehicles)
 credit = Graphs.credit_track(credit, df, vehicles)
 # runs until no cars left in simulation
 while traci.vehicle.getIDList():
     # this runs one simulation step
-    time.sleep(0.05)
+    time.sleep(0.01)
     traci.simulationStep()
     vehicles = traci.vehicle.getIDList()
     df = CreditPolicy.credit_policy(vehicles, df)
@@ -56,6 +60,8 @@ while traci.vehicle.getIDList():
 
 traci.close()
 
-Graphs.export_speed(speed_data)
-Graphs.export_wait(waiting_time)
-Graphs.export_credits(credit)
+print(released.released)
+
+# Graphs.export_speed(speed_data)
+# Graphs.export_wait(waiting_time)
+# Graphs.export_credits(credit)
